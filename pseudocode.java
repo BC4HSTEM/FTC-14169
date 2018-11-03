@@ -12,29 +12,31 @@ public class HelloWorld{
 
     }
 
-    public void driveStraight(double distance){
+    public void driveStraight(double distance, double power){
         leftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         rightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        leftMotor.setTargetPosition(getEncoderClicks(10.2));
-        leftMotor.setPower(.75);
-        rightMotor.setTargetPosition(getEncoderClicks(10.2));
-        rightMotor.setPower(.75);
+        leftMotor.setTargetPosition(getEncoderClicks(distance));
+        leftMotor.setPower(power);
+        rightMotor.setTargetPosition(getEncoderClicks(distance));
+        rightMotor.setPower(power);
 
         telemetry.AddData(...);
 
     }
 
-    public void driveReverse(double distance){
+    public void driveReverse(double distance, double power){
+		leftMotor.setMode(DcMotor.RunMode.REVERSE);
+		rightMotor.setMode(DcMotor.RunMode.REVERSE);
         leftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         rightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        leftMotor.setTargetPosition(getEncoderClicks(10.2));
-        leftMotor.setPower(.75);
-        rightMotor.setTargetPosition(getEncoderClicks(10.2));
-        rightMotor.setPower(.75);
+        leftMotor.setTargetPosition(getEncoderClicks(distance));
+        leftMotor.setPower(power);
+        rightMotor.setTargetPosition(getEncoderClicks(distance));
+        rightMotor.setPower(power);
 
         telemetry.AddData(...);
 
